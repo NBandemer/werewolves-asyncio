@@ -1,4 +1,5 @@
 sudo apt install python3
+umask 022
 sudo pip3 install aioconsole
 sudo pip3 install aiofiles
 sudo adduser moderator
