@@ -5,7 +5,6 @@ sudo pip3 install aiofiles
 sudo adduser moderator
 sudo cp -r ./* /home/moderator
 sudo chmod a+x /home/moderator
-sudo chmod 711 /home/moderator/pipes
 sudo touch /home/moderator/log/dummy-m.log
 sudo chown moderator /home/moderator/log/*
 sudo chgrp moderator /home/moderator/log/*
