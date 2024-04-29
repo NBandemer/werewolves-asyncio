@@ -8,11 +8,11 @@ test=0
 
 #duration (in seconds) for the corresponding phase of the game
 timeTillStart=45
-wolfTalkTime=10
-wolfVoteTime=45
-townTalkTime=15
-townVoteTime=45
-witchVoteTime=45
+wolfTalkTime=40
+wolfVoteTime=20
+townTalkTime=100
+townVoteTime=20
+witchVoteTime=20
 deathSpeechTime=10
 
 #number of witch poisons

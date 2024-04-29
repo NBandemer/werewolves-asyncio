@@ -1,4 +1,6 @@
-sudo apt install python2
+sudo apt install python3
+sudo pip3 install aioconsole
+sudo pip3 install aiofiles
 sudo adduser moderator
 sudo cp -r ./* /home/moderator
 sudo chmod a+x /home/moderator
@@ -10,4 +12,4 @@ sudo chown moderator /home/moderator/*
 sudo chgrp moderator /home/moderator/*
 sudo chmod 700 /home/moderator/log/template
 sudo chmod 700 /home/moderator/log/dummy-m.log
-python2 makeusers.py 16
+python3 makeusers.py 16

@@ -362,7 +362,7 @@ async def main():
     print(f'Serving on {addrs}')
 
     async with server:
-        await asyncio.sleep(10)
+        await asyncio.sleep(timeTillStart)
         isHandlingConnections = False
         await assign()
         await c.broadcast('There are ' + str(len(wolves)) + ' wolves, and ' + str(len(all) - len(wolves)) + ' townspeople.', all)
