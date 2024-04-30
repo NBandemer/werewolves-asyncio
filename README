@@ -1,24 +1,38 @@
-*** Group members: Nathaniel Bandemer, Hunter White, Ryan Pettinato, Zaid Usmani ***
-*** This refactor was done in PYTHON3 ***
-*** We would NOT like our code distributed in the future.  ***
+## Werewolves Refactor
 
-*** OUR REFACTOR ***
-The focus of the refactoring was to implement the asnycio library (avaliable in >=python3.4) in order to fix various vulnerabilities that arose from multithreading using pipes. 
+*Group members*: Nathaniel Bandemer, Hunter White, Ryan Pettinato, Zaid Usmani
+This refactor was done in *PYTHON3* (Python 3.8 or greater is *required*)
+We would *NOT* like our code distributed in the future.
+
+## OUR REFACTOR
+The focus of the refactoring was to implement async I/O in order to fix various vulnerabilities that arose from multithreading and using pipes. 
 
 The existing system has been replaced with an asynchronous socket server. Each client connects to the locally running socket server (this could be easily extended to support external connections) and has instances of a StreamReader and a StreamWriter in order to handle two-way communication with the server.
 
-In its most basic form, async defined functions are run from an event pool, and are able to pause execution and give up the executing thread to another function in the event pool. This allows for concurrent execution of IO bound tasks as well as game logic without multithreading.
+In its most basic form, async defined functions are run from an event pool, and are able to pause execution and give up the executing thread to another function in the event pool. This allows for concurrent execution of I/O bound tasks as well as game logic without multithreading.
 
-*** INSTRUCTIONS ***
+## INSTRUCTIONS
 1) Rerun the modified install.sh to support python3 and install necessary packages
-2) Run server.py as the moderator
-3) Run client.py as a player
+2) Grant read permissions for the moderator to the log file (mentioned in below note)
+3) Run server.py as the moderator
+4) Run client.py as a player
 
-*** NOTE ***
+## NOTE / Troubleshooting
+It is highly recommended to install werewolves into a directory accessible to all users, so the moderator can then run server.py from the werewolves install directory. Otherwise permission issues can arise.
 
+Also, it appears to be required to grant permissions to log/nextround file to the moderator in order to run the server.
 
+The installed pip packages are:
+- *aioconsole* (used by all users)
+- *aiofiles* (only used by moderator)
 
-*** ORIGINAL README ***
+If python is reporting them as not installed even after running install.sh, they were most likely not installed for all users. 
+
+Run:
+### pip3 install aioconsole aiofiles
+For all players if this issue arises.
+
+## ORIGINAL README / LICENSING
 Copyright (c)  2012 Mike Jacobi, Xu Zhang, Roya Ensafi, Jed Crandall
 Permission is granted to copy, distribute and/or modify this document
 under the terms of the GNU Free Documentation License, Version 1.3

@@ -42,18 +42,25 @@ async def send():
 
 async def connect():
     global reader, writer
-    reader, writer = await asyncio.open_connection(
-    '127.0.0.1', 8888)
+    try:
+        reader, writer = await asyncio.open_connection(
+        '127.0.0.1', 8888)
+    except Exception as e:
+        print('Server is not running')
+        return False
     message = f"{user}:connect"
     writer.write(message.encode())
     await writer.drain()
     data = await reader.read(100)  
     print(data.decode())  
+    return True
 
 async def client():
     global tasks
 
-    await connect()
+    connected = await connect()
+    if not connected:
+        return
     tasks.append(asyncio.create_task(listen()))
     tasks.append(asyncio.create_task(send()))
 
